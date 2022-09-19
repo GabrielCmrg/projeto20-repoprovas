@@ -12,7 +12,7 @@ export const loginSchema: Joi.ObjectSchema<UserCreationData> = Joi
 export const signupSchema: Joi.ObjectSchema<UserRequestData> = Joi
   .object<UserRequestData, true>({
     email: Joi.string().trim().email().required(),
-    password: Joi.string().trim().min(10).required(),
+    password: Joi.string().trim().required(),
     confirmPassword: Joi.string().trim().equal(Joi.ref('password')).required(),
   });
 
