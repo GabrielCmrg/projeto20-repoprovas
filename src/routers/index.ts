@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
+import authRouter from './authRouter';
+
 const router: Router = Router();
-router.get('/', (req, res) => {
-  console.log('Test route');
-  return res.send('Its working');
-})
+
+router.use(authRouter);
 
 export default router;
