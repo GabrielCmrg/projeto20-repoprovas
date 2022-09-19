@@ -1,6 +1,9 @@
 {
   "name": "projeto20-repoprovas",
   "version": "1.0.0",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "description": "",
   "main": "src/server.ts",
   "scripts": {
