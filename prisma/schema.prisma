@@ -17,3 +17,10 @@ model User {
 
   @@map("users")
 }
+
+model Term {
+  id     Int @id @default(autoincrement())
+  number Int @unique
+
+  @@map("terms")
+}
