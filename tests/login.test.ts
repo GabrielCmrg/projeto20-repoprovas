@@ -2,9 +2,14 @@ import supertest from 'supertest';
 import Joi from 'joi';
 
 import app from '../src/app';
+import { client } from '../src/config/database';
 import * as user from './factories/userFactory';
 
 describe('Testing login', () => {
+
+  beforeEach(async () => {
+    await client.$executeRaw`TRUNCATE TABLE users RESTART IDENTITY`;
+  });
 
   it('Should return status code 201 and token given right credentials', async () => {
     const createAccount = user.signupInfos();
@@ -44,5 +49,9 @@ describe('Testing login', () => {
     const result = await supertest(app).post('/login').send(body);
     expect(result.status).toBe(401);
   });
+
+  afterAll(async () => {
+    await client.$disconnect();
+  })
 
 });
