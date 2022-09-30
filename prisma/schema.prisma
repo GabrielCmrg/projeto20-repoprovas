@@ -70,5 +70,5 @@ model Test {
   categoryId           Int
   category             Category            @relation(fields: [categoryId], references: [id])
   teachersDisciplineId Int
-  teachersDicipline    TeachersDisciplines @relation(fields: [teachersDisciplineId], references: [id])
+  teachersDiscipline    TeachersDisciplines @relation(fields: [teachersDisciplineId], references: [id])
 }
