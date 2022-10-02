@@ -45,6 +45,18 @@ describe("Testing creation of test", () => {
     expect(createdTest).toBeFalsy();
   });
 
+  it("Should return status code 401 when token is invalid", async () => {
+    const body = test.testInfos();
+    const invalidToken = user.invalidToken();
+    const result = await supertest(app)
+      .post("/tests")
+      .set("Authorization", `Bearer ${invalidToken}`)
+      .send(body);
+    const createdTest = await client.test.findFirst();
+    expect(result.status).toBe(401);
+    expect(createdTest).toBeFalsy();
+  });
+
   afterAll(async () => {
     await client.$disconnect();
   });
