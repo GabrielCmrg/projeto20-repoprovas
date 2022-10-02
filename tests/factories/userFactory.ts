@@ -18,3 +18,9 @@ export function token() {
   const token: string = jwt.sign({ userId: 1 }, secretKey);
   return token;
 }
+
+export function invalidToken() {
+  const secretKey: string = "wrong secret";
+  const token: string = jwt.sign({ userId: 1 }, secretKey);
+  return token;
+}
