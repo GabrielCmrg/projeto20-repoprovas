@@ -11,3 +11,14 @@ export async function getRelation(
     });
   return relation;
 }
+
+export async function createRelation(
+  disciplineId: number,
+  teacherId: number
+): Promise<TeachersDisciplines> {
+  const createdRelation: TeachersDisciplines =
+    await client.teachersDisciplines.create({
+      data: { disciplineId, teacherId },
+    });
+  return createdRelation;
+}
