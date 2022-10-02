@@ -18,15 +18,19 @@ describe("Testing sing-up", () => {
     const body = user.signupInfos();
     const result = await supertest(app).post("/signup").send(body);
     const validation = returnSchema.validate(result.body);
+    const createdUser = await client.user.findFirst();
     expect(result.status).toBe(201);
     expect(validation.error).toBeFalsy();
+    expect(createdUser).toBeTruthy();
   });
 
   it("Should return status code 422 when password is different from confirmation", async () => {
     const body = user.signupInfos();
     body.confirmPassword = "differentPassword";
     const result = await supertest(app).post("/signup").send(body);
+    const createdUser = await client.user.findFirst();
     expect(result.status).toBe(422);
+    expect(createdUser).toBeFalsy();
   });
 
   it("Should return status code 409 when email is in use", async () => {
@@ -35,7 +39,9 @@ describe("Testing sing-up", () => {
       data: { email: body.email, password: body.password },
     });
     const result = await supertest(app).post("/signup").send(body);
+    const createdUser = await client.user.findFirst();
     expect(result.status).toBe(409);
+    expect(createdUser).toBeFalsy();
   });
 
   afterAll(async () => {
