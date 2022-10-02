@@ -1,4 +1,4 @@
-import { TeachersDisciplines } from "@prisma/client";
+import { TeacherDiscipline } from "@prisma/client";
 
-export { TeachersDisciplines };
-export type TeachersDisciplinesCreationData = Omit<TeachersDisciplines, "id">;
+export { TeacherDiscipline };
+export type TeacherDisciplineCreationData = Omit<TeacherDiscipline, "id">;

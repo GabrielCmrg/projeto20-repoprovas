@@ -27,24 +27,24 @@ model Term {
 }
 
 model Discipline {
-  id       Int                   @id @default(autoincrement())
-  name     String                @unique
-  term     Term                  @relation(fields: [termId], references: [id])
+  id       Int                 @id @default(autoincrement())
+  name     String              @unique
+  term     Term                @relation(fields: [termId], references: [id])
   termId   Int
-  teachers TeachersDisciplines[]
+  teachers TeacherDiscipline[]
 
   @@map("disciplines")
 }
 
 model Teacher {
-  id          Int                   @id @default(autoincrement())
-  name        String                @unique
-  disciplines TeachersDisciplines[]
+  id          Int                 @id @default(autoincrement())
+  name        String              @unique
+  disciplines TeacherDiscipline[]
 
   @@map("teachers")
 }
 
-model TeachersDisciplines {
+model TeacherDiscipline {
   id           Int        @id @default(autoincrement())
   teacher      Teacher    @relation(fields: [teacherId], references: [id])
   teacherId    Int
@@ -65,11 +65,11 @@ model Category {
 }
 
 model Test {
-  id                   Int                 @id @default(autoincrement())
-  name                 String
-  pdfUrl               String
-  categoryId           Int
-  category             Category            @relation(fields: [categoryId], references: [id])
-  teachersDisciplineId Int
-  teachersDiscipline   TeachersDisciplines @relation(fields: [teachersDisciplineId], references: [id])
+  id                  Int               @id @default(autoincrement())
+  name                String
+  pdfUrl              String
+  categoryId          Int
+  category            Category          @relation(fields: [categoryId], references: [id])
+  teacherDisciplineId Int
+  teacherDiscipline   TeacherDiscipline @relation(fields: [teacherDisciplineId], references: [id])
 }
