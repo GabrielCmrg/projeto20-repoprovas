@@ -2,7 +2,7 @@ import Joi from "joi";
 
 import { TestRequestData } from "../types/testTypes";
 
-export const loginSchema: Joi.ObjectSchema<TestRequestData> = Joi.object<
+export const testRequestSchema: Joi.ObjectSchema<TestRequestData> = Joi.object<
   TestRequestData,
   true
 >({
