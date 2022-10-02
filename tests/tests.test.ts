@@ -33,6 +33,18 @@ describe("Testing creation of test", () => {
     expect(createdTest).toBeTruthy();
   });
 
+  it("Should return status code 422 when body is incorrect", async () => {
+    const body = test.testInfos();
+    body.pdfUrl = "not a url";
+    const result = await supertest(app)
+      .post("/tests")
+      .set("Authorization", `Bearer ${token}`)
+      .send(body);
+    const createdTest = await client.test.findFirst();
+    expect(result.status).toBe(422);
+    expect(createdTest).toBeFalsy();
+  });
+
   afterAll(async () => {
     await client.$disconnect();
   });
