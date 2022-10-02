@@ -39,9 +39,9 @@ describe("Testing sing-up", () => {
       data: { email: body.email, password: body.password },
     });
     const result = await supertest(app).post("/signup").send(body);
-    const createdUser = await client.user.findFirst();
+    const createdUsers = await client.user.findMany();
     expect(result.status).toBe(409);
-    expect(createdUser).toBeFalsy();
+    expect(createdUsers.length).toBe(1);
   });
 
   afterAll(async () => {
