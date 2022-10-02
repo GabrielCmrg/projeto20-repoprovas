@@ -57,6 +57,18 @@ describe("Testing creation of test", () => {
     expect(createdTest).toBeFalsy();
   });
 
+  it("Should return status code 409 when teacher is not related to discipline", async () => {
+    const body = test.testInfos();
+    body.teacherId = 1;
+    const result = await supertest(app)
+      .post("/tests")
+      .set("Authorization", `Bearer ${token}`)
+      .send(body);
+    const createdTest = await client.test.findFirst();
+    expect(result.status).toBe(409);
+    expect(createdTest).toBeFalsy();
+  });
+
   afterAll(async () => {
     await client.$disconnect();
   });
