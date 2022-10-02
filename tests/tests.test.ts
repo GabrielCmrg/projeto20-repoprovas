@@ -69,6 +69,42 @@ describe("Testing creation of test", () => {
     expect(createdTest).toBeFalsy();
   });
 
+  it("Should return status code 404 when category doesn't exist", async () => {
+    const body = test.testInfos();
+    body.categoryId = 10;
+    const result = await supertest(app)
+      .post("/tests")
+      .set("Authorization", `Bearer ${token}`)
+      .send(body);
+    const createdTest = await client.test.findFirst();
+    expect(result.status).toBe(404);
+    expect(createdTest).toBeFalsy();
+  });
+
+  it("Should return status code 404 when teacher doesn't exist", async () => {
+    const body = test.testInfos();
+    body.teacherId = 10;
+    const result = await supertest(app)
+      .post("/tests")
+      .set("Authorization", `Bearer ${token}`)
+      .send(body);
+    const createdTest = await client.test.findFirst();
+    expect(result.status).toBe(404);
+    expect(createdTest).toBeFalsy();
+  });
+
+  it("Should return status code 404 when discipline doesn't exist", async () => {
+    const body = test.testInfos();
+    body.disciplineId = 10;
+    const result = await supertest(app)
+      .post("/tests")
+      .set("Authorization", `Bearer ${token}`)
+      .send(body);
+    const createdTest = await client.test.findFirst();
+    expect(result.status).toBe(404);
+    expect(createdTest).toBeFalsy();
+  });
+
   afterAll(async () => {
     await client.$disconnect();
   });
