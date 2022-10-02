@@ -10,6 +10,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
+    "pretest": "dotenv -e .env.test prisma migrate dev",
     "test": "dotenv -e .env.test jest -- -i"
   },
   "keywords": [],
