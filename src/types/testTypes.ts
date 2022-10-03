@@ -16,3 +16,12 @@ export type TestRequestData = Omit<TestCreationData, "teacherDisciplineId"> & {
 export type TestData = Omit<TestModel, "categoryId" | "teacherDisciplineId"> & {
   teacher: Teacher;
 };
+
+export function buildTestData(test: Test): TestData {
+  return {
+    id: test.id,
+    name: test.name,
+    pdfUrl: test.pdfUrl,
+    teacher: test.teacherDiscipline!.teacher!,
+  };
+}
