@@ -6,6 +6,6 @@ import { validationMiddlewares } from "../middlewares";
 const termRouter: Router = Router();
 termRouter.use(validationMiddlewares.validateHeader);
 
-termRouter.get("/term", termController.getAll);
+termRouter.get("/terms", termController.getAll);
 
 export default termRouter;
