@@ -80,7 +80,7 @@ POST /tests
 
 ## 🏁 Running the Application
 
-This project was created using `node` on version `v16.15.1` and `npm` on version `8.11.0`, so it is recommended to use this versions. It also uses `postgres` on your machine so you'll need to install that too.
+This project was created using `node` on version `v16.15.1` and `npm` on version `8.11.0`, so it is recommended to use this versions. It also uses `postgres` on version `14.5` on your machine so you'll need to install that too.
 
 First, clone this repository in your machine:
 
