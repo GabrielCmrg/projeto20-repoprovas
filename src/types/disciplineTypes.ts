@@ -8,7 +8,7 @@ export type Discipline = DisciplineModel & {
   term?: Term;
   teachers?: TeacherDiscipline[];
 };
-export type DisciplineCreationData = Omit<Discipline, "id">;
-export type DisciplineData = Discipline & {
+export type DisciplineCreationData = Omit<DisciplineModel, "id">;
+export type DisciplineData = Omit<DisciplineModel, "termId"> & {
   categories: CategoryData[];
 };

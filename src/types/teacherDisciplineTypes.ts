@@ -9,4 +9,4 @@ export type TeacherDiscipline = TeacherDisciplineModel & {
   discipline?: Discipline;
   tests?: Test[];
 };
-export type TeacherDisciplineCreationData = Omit<TeacherDiscipline, "id">;
+export type TeacherDisciplineCreationData = Omit<TeacherDisciplineModel, "id">;

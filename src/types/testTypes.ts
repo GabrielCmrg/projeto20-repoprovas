@@ -8,11 +8,11 @@ export type Test = TestModel & {
   category?: Category;
   teacherDiscipline?: TeacherDiscipline;
 };
-export type TestCreationData = Omit<Test, "id">;
+export type TestCreationData = Omit<TestModel, "id">;
 export type TestRequestData = Omit<TestCreationData, "teacherDisciplineId"> & {
   disciplineId: number;
   teacherId: number;
 };
-export type TestData = Omit<Test, "categoryId" | "teacherDisciplineId"> & {
+export type TestData = Omit<TestModel, "categoryId" | "teacherDisciplineId"> & {
   teacher: Teacher;
 };

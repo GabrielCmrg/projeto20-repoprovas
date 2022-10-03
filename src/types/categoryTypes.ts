@@ -5,7 +5,7 @@ import { Test, TestData } from "./testTypes";
 export type Category = CategoryModel & {
   tests?: Test[];
 };
-export type CategoryCreationData = Omit<Category, "id">;
-export type CategoryData = Category & {
+export type CategoryCreationData = Omit<CategoryModel, "id">;
+export type CategoryData = CategoryModel & {
   tests: TestData[];
 };

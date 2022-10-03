@@ -5,7 +5,7 @@ import { Discipline, DisciplineData } from "./disciplineTypes";
 export type Term = TermModel & {
   disciplines?: Discipline[];
 };
-export type TermData = Term & {
+export type TermData = TermModel & {
   name: string;
   disciplines: DisciplineData[];
 };
