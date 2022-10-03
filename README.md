@@ -123,3 +123,9 @@ npm run test
 ```
 
 There is also a collection with the important requests, and you can run then all at once to see exactly what is needed on each route, and exactly what it responds. In order for them to work you will need to configure a environment on your thunder client. The variables needed are on `.env.example`.
+
+:stop_sign: The tests that comes with the collection only works one. If you want to re-do the tests of the collection you will need to run:
+
+```
+npx prisma migrate reset
+```
