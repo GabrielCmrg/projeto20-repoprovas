@@ -9,3 +9,20 @@ export async function getTeacherById(
   });
   return teacher;
 }
+
+export async function getAll(): Promise<Teacher[]> {
+  return await client.teacher.findMany({
+    include: {
+      disciplines: {
+        include: {
+          discipline: true,
+          tests: {
+            include: {
+              category: true,
+            },
+          },
+        },
+      },
+    },
+  });
+}
