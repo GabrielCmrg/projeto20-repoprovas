@@ -32,3 +32,12 @@ export function buildTestData(test: Test): TestData {
     teacher: test.teacherDiscipline!.teacher!,
   };
 }
+
+export function buildTestDisciplineData(test: Test): TestDisciplineData {
+  return {
+    id: test.id,
+    name: test.name,
+    pdfUrl: test.pdfUrl,
+    discipline: test.teacherDiscipline!.discipline!,
+  };
+}
