@@ -6,6 +6,6 @@ export type Category = CategoryModel & {
   tests?: Test[];
 };
 export type CategoryCreationData = Omit<CategoryModel, "id">;
-export type CategoryData = CategoryModel & {
-  tests: TestData[];
+export type CategoryData<type = TestData> = CategoryModel & {
+  tests: type[];
 };
