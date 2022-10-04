@@ -76,6 +76,66 @@ POST /tests
   }
 ```
 
+```yml
+GET /terms
+  - Get all terms with tests nested
+  - headers: { "Authorization": "Bearer $token" }
+  - Doesn't need a body
+  - The return is
+  - body: [
+    {
+      "id": 1,
+      "number": 1,
+      "name": "1º Periodo",
+      "disciplines": [
+        {
+          "id": 1,
+          "name": "HTML e CSS",
+          "categories": []
+        },
+        {
+          "id": 4,
+          "name": "Humildade",
+          "categories": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "number": 2,
+      "name": "2º Periodo",
+      "disciplines": [
+        {
+          "id": 2,
+          "name": "JavaScript",
+          "categories": []
+        },
+        {
+          "id": 5,
+          "name": "Planejamento",
+          "categories": [
+            {
+              "id": 3,
+              "name": "Recuperação",
+              "tests": [
+                {
+                  "id": 1,
+                  "name": "Planning test",
+                  "pdfUrl": "https://www.orimi.com/pdf-test.pdf",
+                  "teacher": {
+                    "id": 2,
+                    "name": "Bruna Hamori"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+```
+
 ---
 
 ## 🏁 Running the Application

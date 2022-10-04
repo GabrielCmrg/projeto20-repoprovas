@@ -1,4 +1,11 @@
-import { Category } from "@prisma/client";
+import { Category as CategoryModel } from "@prisma/client";
 
-export { Category };
-export type CategoryCreationData = Omit<Category, "id">;
+import { Test, TestData } from "./testTypes";
+
+export type Category = CategoryModel & {
+  tests?: Test[];
+};
+export type CategoryCreationData = Omit<CategoryModel, "id">;
+export type CategoryData = CategoryModel & {
+  tests: TestData[];
+};
