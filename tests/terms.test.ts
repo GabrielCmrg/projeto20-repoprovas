@@ -30,6 +30,15 @@ describe("Testing creation of test", () => {
     expect(validation.error).toBeFalsy();
   });
 
+  it("Should return status code 401 when token is invalid", async () => {
+    const invalidToken = user.invalidToken();
+    const result = await supertest(app)
+      .get("/terms")
+      .set("Authorization", `Bearer ${invalidToken}`)
+      .send();
+    expect(result.status).toBe(401);
+  });
+
   afterAll(async () => {
     await client.$disconnect();
   });
