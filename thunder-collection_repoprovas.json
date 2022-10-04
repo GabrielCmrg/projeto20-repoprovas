@@ -1,1 +1,175 @@
-{"client":"Thunder Client","collectionName":"repoprovas","dateExported":"2022-10-03T01:18:06.895Z","version":"1.1","folders":[],"requests":[{"_id":"5fbfc1b5-ce49-440c-aba5-0853ca167d93","colId":"42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d","containerId":"","name":"Create account","url":"{{base_url}}/signup","method":"POST","sortNum":10000,"created":"2022-10-03T00:58:32.545Z","modified":"2022-10-03T01:07:35.179Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\",\n  \"confirmPassword\": \"{{password}}\"\n}","form":[]},"tests":[{"type":"res-code","custom":"","action":"equal","value":"201"},{"type":"res-body","custom":"","action":"isjson","value":"true"},{"type":"json-query","custom":"json.email","action":"istype","value":"string"},{"type":"json-query","custom":"json.id","action":"istype","value":"number"}]},{"_id":"045305f0-c765-4d32-91aa-3d1f4a9f7dde","colId":"42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d","containerId":"","name":"Login to your account","url":"{{base_url}}/login","method":"POST","sortNum":20000,"created":"2022-10-03T01:07:52.483Z","modified":"2022-10-03T01:09:09.883Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}","form":[]},"tests":[{"type":"res-code","custom":"","action":"equal","value":"201"},{"type":"res-body","custom":"","action":"isjson","value":"true"},{"type":"json-query","custom":"json.token","action":"istype","value":"string"},{"type":"set-env-var","custom":"json.token","action":"setto","value":"{{token}}"}]},{"_id":"e6074ec0-86dc-4365-bc9c-fb88ba383a63","colId":"42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d","containerId":"","name":"Create test","url":"{{base_url}}/tests","method":"POST","sortNum":30000,"created":"2022-10-03T01:09:42.933Z","modified":"2022-10-03T01:17:38.790Z","headers":[],"params":[],"body":{"type":"json","raw":"{\n  \"name\": \"Planning test\",\n  \"pdfUrl\": \"https://www.orimi.com/pdf-test.pdf\",\n  \"categoryId\": 3,\n  \"teacherId\": 2,\n  \"disciplineId\": 5\n}","form":[]},"auth":{"type":"bearer","bearer":"{{token}}"},"tests":[{"type":"res-code","custom":"","action":"equal","value":"201"},{"type":"res-body","custom":"","action":"isjson","value":"true"},{"type":"json-query","custom":"json.id","action":"istype","value":"number"},{"type":"json-query","custom":"json.name","action":"istype","value":"string"},{"type":"json-query","custom":"json.pdfUrl","action":"istype","value":"string"},{"type":"json-query","custom":"json.categoryId","action":"istype","value":"number"},{"type":"json-query","custom":"json.teacherDisciplineId","action":"istype","value":"number"}]}],"settings":{}}
+{
+  "client": "Thunder Client",
+  "collectionName": "repoprovas",
+  "dateExported": "2022-10-04T17:31:42.278Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "5fbfc1b5-ce49-440c-aba5-0853ca167d93",
+      "colId": "42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d",
+      "containerId": "",
+      "name": "Create account",
+      "url": "{{base_url}}/signup",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-10-03T00:58:32.545Z",
+      "modified": "2022-10-03T01:07:35.179Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\",\n  \"confirmPassword\": \"{{password}}\"\n}",
+        "form": []
+      },
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "201" },
+        {
+          "type": "res-body",
+          "custom": "",
+          "action": "isjson",
+          "value": "true"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.email",
+          "action": "istype",
+          "value": "string"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.id",
+          "action": "istype",
+          "value": "number"
+        }
+      ]
+    },
+    {
+      "_id": "045305f0-c765-4d32-91aa-3d1f4a9f7dde",
+      "colId": "42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d",
+      "containerId": "",
+      "name": "Login to your account",
+      "url": "{{base_url}}/login",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-10-03T01:07:52.483Z",
+      "modified": "2022-10-03T01:09:09.883Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}",
+        "form": []
+      },
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "201" },
+        {
+          "type": "res-body",
+          "custom": "",
+          "action": "isjson",
+          "value": "true"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.token",
+          "action": "istype",
+          "value": "string"
+        },
+        {
+          "type": "set-env-var",
+          "custom": "json.token",
+          "action": "setto",
+          "value": "{{token}}"
+        }
+      ]
+    },
+    {
+      "_id": "e6074ec0-86dc-4365-bc9c-fb88ba383a63",
+      "colId": "42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d",
+      "containerId": "",
+      "name": "Create test",
+      "url": "{{base_url}}/tests",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2022-10-03T01:09:42.933Z",
+      "modified": "2022-10-03T01:17:38.790Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Planning test\",\n  \"pdfUrl\": \"https://www.orimi.com/pdf-test.pdf\",\n  \"categoryId\": 3,\n  \"teacherId\": 2,\n  \"disciplineId\": 5\n}",
+        "form": []
+      },
+      "auth": { "type": "bearer", "bearer": "{{token}}" },
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "201" },
+        {
+          "type": "res-body",
+          "custom": "",
+          "action": "isjson",
+          "value": "true"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.id",
+          "action": "istype",
+          "value": "number"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.name",
+          "action": "istype",
+          "value": "string"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.pdfUrl",
+          "action": "istype",
+          "value": "string"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.categoryId",
+          "action": "istype",
+          "value": "number"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.teacherDisciplineId",
+          "action": "istype",
+          "value": "number"
+        }
+      ]
+    },
+    {
+      "_id": "3301db4d-00ec-42b6-bd96-0fa61ffd6b92",
+      "colId": "42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d",
+      "containerId": "",
+      "name": "Get tests by discipline",
+      "url": "{{base_url}}/terms",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2022-10-04T16:40:11.064Z",
+      "modified": "2022-10-04T17:31:26.643Z",
+      "headers": [],
+      "params": [],
+      "auth": { "type": "bearer", "bearer": "{{token}}" },
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "200" },
+        {
+          "type": "res-body",
+          "custom": "",
+          "action": "isjson",
+          "value": "true"
+        },
+        {
+          "type": "json-query",
+          "custom": "json",
+          "action": "istype",
+          "value": "array"
+        }
+      ]
+    }
+  ],
+  "settings": {}
+}
