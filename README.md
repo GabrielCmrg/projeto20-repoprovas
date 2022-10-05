@@ -136,6 +136,42 @@ GET /terms
   ]
 ```
 
+```yml
+GET /teachers
+  - Get all teachers with tests nested
+  - headers: { "Authorization": "Bearer $token" }
+  - Doesn't need a body
+  - The return is
+  - body: [
+    {
+      "id": 1,
+      "name": "Diego Pinho",
+      "categories": []
+    },
+    {
+      "id": 2,
+      "name": "Bruna Hamori",
+      "categories": [
+        {
+          "id": 3,
+          "name": "Recuperação",
+          "tests": [
+            {
+              "id": 1,
+              "name": "Planning test",
+              "pdfUrl": "https://www.orimi.com/pdf-test.pdf",
+              "discipline": {
+                "id": 5,
+                "name": "Planejamento",
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+```
+
 ---
 
 ## 🏁 Running the Application
