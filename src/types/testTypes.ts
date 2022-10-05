@@ -3,7 +3,7 @@ import { Test as TestModel } from "@prisma/client";
 import { Teacher } from "./teacherTypes";
 import { Category } from "./categoryTypes";
 import { TeacherDiscipline } from "./teacherDisciplineTypes";
-import { DisciplineName } from "./disciplineTypes";
+import { DisciplineName, buildDisciplineName } from "./disciplineTypes";
 
 export type Test = TestModel & {
   category?: Category;
@@ -38,6 +38,6 @@ export function buildTestDisciplineData(test: Test): TestDisciplineData {
     id: test.id,
     name: test.name,
     pdfUrl: test.pdfUrl,
-    discipline: test.teacherDiscipline!.discipline!,
+    discipline: buildDisciplineName(test.teacherDiscipline!.discipline!),
   };
 }

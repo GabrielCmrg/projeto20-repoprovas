@@ -32,3 +32,10 @@ export function buildDisciplineData(discipline: Discipline): DisciplineData {
     ),
   };
 }
+
+export function buildDisciplineName(discipline: Discipline): DisciplineName {
+  return {
+    id: discipline.id,
+    name: discipline.name,
+  };
+}
