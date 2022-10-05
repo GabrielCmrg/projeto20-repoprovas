@@ -1,7 +1,7 @@
 {
   "client": "Thunder Client",
   "collectionName": "repoprovas",
-  "dateExported": "2022-10-04T17:31:42.278Z",
+  "dateExported": "2022-10-05T00:52:27.635Z",
   "version": "1.1",
   "folders": [],
   "requests": [
@@ -151,6 +151,35 @@
       "sortNum": 40000,
       "created": "2022-10-04T16:40:11.064Z",
       "modified": "2022-10-04T17:31:26.643Z",
+      "headers": [],
+      "params": [],
+      "auth": { "type": "bearer", "bearer": "{{token}}" },
+      "tests": [
+        { "type": "res-code", "custom": "", "action": "equal", "value": "200" },
+        {
+          "type": "res-body",
+          "custom": "",
+          "action": "isjson",
+          "value": "true"
+        },
+        {
+          "type": "json-query",
+          "custom": "json",
+          "action": "istype",
+          "value": "array"
+        }
+      ]
+    },
+    {
+      "_id": "c818e782-63d0-4d17-a9a8-5876f1901cea",
+      "colId": "42ecb4c4-d5bc-4707-9d3c-eb6a50ac597d",
+      "containerId": "",
+      "name": "Get tests by teacher",
+      "url": "{{base_url}}/teachers",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2022-10-04T21:33:12.499Z",
+      "modified": "2022-10-05T00:51:35.930Z",
       "headers": [],
       "params": [],
       "auth": { "type": "bearer", "bearer": "{{token}}" },
