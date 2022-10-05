@@ -7,7 +7,7 @@ import * as term from "./factories/termFactory";
 
 const token = user.token();
 
-describe("Testing creation of test", () => {
+describe("Testing get terms with tests nested", () => {
   beforeAll(async () => {
     const test = {
       name: "Planning test",
