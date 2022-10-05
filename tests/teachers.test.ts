@@ -3,11 +3,11 @@ import supertest from "supertest";
 import app from "../src/app";
 import { client } from "../src/config/database";
 import * as user from "./factories/userFactory";
-import * as term from "./factories/termFactory";
+import * as teacher from "./factories/teacherFactory";
 
 const token = user.token();
 
-describe("Testing get terms with tests nested", () => {
+describe("Testing get teachers with tests nested", () => {
   beforeAll(async () => {
     const test = {
       name: "Planning test",
@@ -19,10 +19,10 @@ describe("Testing get terms with tests nested", () => {
     await client.test.create({ data: test });
   });
 
-  it("Should return status code 200 and a list of terms", async () => {
-    const returnSchema = term.termArraySchema();
+  it("Should return status code 200 and a list of teachers", async () => {
+    const returnSchema = teacher.teacherArraySchema();
     const result = await supertest(app)
-      .get("/terms")
+      .get("/teachers")
       .set("Authorization", `Bearer ${token}`)
       .send();
     const validation = returnSchema.validate(result.body);
@@ -33,7 +33,7 @@ describe("Testing get terms with tests nested", () => {
   it("Should return status code 401 when token is invalid", async () => {
     const invalidToken = user.invalidToken();
     const result = await supertest(app)
-      .get("/terms")
+      .get("/teachers")
       .set("Authorization", `Bearer ${invalidToken}`)
       .send();
     expect(result.status).toBe(401);

@@ -70,8 +70,8 @@ export async function registerNewTest(test: TestRequestData): Promise<Test> {
 // with tests nested to it
 export function groupTestsByCategories(
   teacherDisciplines: TeacherDiscipline[]
-): CategoryData[] {
-  const groupedMap: { [key: number]: CategoryData } = {};
+): CategoryData<Test>[] {
+  const groupedMap: { [key: number]: CategoryData<Test> } = {};
   teacherDisciplines.forEach((teacherDiscipline: TeacherDiscipline): void => {
     const tests: Test[] | undefined = teacherDiscipline.tests;
     tests!.forEach((test: Test): void => {
@@ -84,8 +84,7 @@ export function groupTestsByCategories(
       }
       // if we hadn't the reference on the test, we will need it
       test.teacherDiscipline = teacherDiscipline;
-      const testData: TestData = buildTestData(test);
-      groupedMap[test.categoryId].tests.push(testData);
+      groupedMap[test.categoryId].tests.push(test);
     });
   });
 
